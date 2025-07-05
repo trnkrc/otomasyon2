@@ -45,7 +45,8 @@ def parse_metraj_pdf(pdf_bytes):
             rows.setdefault(y_key, []).append(w)
 
         for y, items in rows.items():
-            line_text = " ".join(sorted([w['text'] for w in items], key=lambda x: x))
+            sorted_items = sorted(items, key=lambda x: x['x'])
+            line_text = " ".join([w['text'] for w in sorted_items])
             match = re.search(r"Ø\s?(\d{3}).*?L\s?:?\s?(\d+).*?([\d,.]+).*?([\d,.]+)", line_text)
             if match:
                 cap, uzunluk, akar1, akar2 = match.groups()
@@ -86,3 +87,4 @@ PDF dosyasini gonderin, JSON metraj verisi alin.
 ---
 
 Bu surumde PDF icerigindeki daginik metinleri koordinatlara gore toparlayarak Ø, L ve akar kotlarini yakalamaya calisir. Daha gelismis eslestirme algoritmalari ilerleyen surumlerde eklenecek.
+
