@@ -102,7 +102,3 @@ uvicorn main:app --reload
 ## API
 **POST /extract-metraj**  
 PDF dosyasini gonderin, JSON metraj verisi alin.
-
----
-
-Bu surumde parcalanmis PDF yapi metinlerini sirali olarak gezip Ø, L, ve akar kotlarini yakalamaya calisir. Nokta ve sayilarin bolunmus oldugu durumlara toleranslidir.
